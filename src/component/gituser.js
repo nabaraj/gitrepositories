@@ -10,7 +10,13 @@ function GitUser(props) {
       setLoader(true);
       axios.get("https://api.github.com/users/nabaraj/repos").then(result => {
         console.log("ree", result);
-        setRepo(result.data);
+        let data = result.data.sort((a, b) => {
+          var adate = new Date(a.created_at);
+          var bdate = new Date(b.created_at);
+
+          return adate.getTime() - bdate.getTime();
+        });
+        setRepo(data);
       });
     }
   }, [resultLoaded]);

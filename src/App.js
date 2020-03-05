@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import GitUser from "./component/gituser";
+import LoginUser from "./component/login";
 import "./App.css";
 
 function App() {
+  const [isLogged, login] = useState(false);
   return (
     <div className="App">
-      <GitUser />
+      <h1 className="text-center">Github Timeline</h1>
+      {!isLogged ? <LoginUser /> : <GitUser />}
     </div>
   );
 }
