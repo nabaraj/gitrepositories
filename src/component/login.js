@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
-function LoginUser() {
+function LoginUser(props) {
   return (
     <div className="login-page">
       <div className="form">
