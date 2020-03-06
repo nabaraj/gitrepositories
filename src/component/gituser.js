@@ -2,23 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function GitUser(props) {
-  const [repo, setRepo] = useState([]);
   const [resultLoaded, setLoader] = useState(false);
 
   useEffect(() => {
-    if (!resultLoaded) {
-      setLoader(true);
-      axios.get("https://api.github.com/users/nabaraj/repos").then(result => {
-        console.log("ree", result);
-        let data = result.data.sort((a, b) => {
-          var adate = new Date(a.created_at);
-          var bdate = new Date(b.created_at);
-
-          return adate.getTime() - bdate.getTime();
-        });
-        setRepo(data);
-      });
-    }
+    // if (!resultLoaded) {
+    //   setLoader(true);
+    // }
   }, [resultLoaded]);
   const genarateDate = dateValue => {
     var date = new Date(dateValue);
@@ -32,7 +21,7 @@ function GitUser(props) {
   return (
     <div>
       <ul className="timeline">
-        {repo.map((item, index) => (
+        {props.repo.map((item, index) => (
           <li key={item.id}>
             <div
               className={`${
@@ -40,7 +29,11 @@ function GitUser(props) {
               }`}
             >
               <div className="flag-wrapper">
-                <span className="flag">{item.name}</span>
+                <span className="flag">
+                  <a href={item.html_url} target="_blank">
+                    {item.name}
+                  </a>
+                </span>
                 <span className="time-wrapper">
                   {genarateDate(item.created_at)}
                 </span>
