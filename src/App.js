@@ -7,24 +7,37 @@ import "./App.css";
 function App() {
   const [isLogged, login] = useState(false);
   const [repo, setRepo] = useState([]);
-  const setUser = (username, email) => {
-    axios.get(`https://api.github.com/users/${username}/repos`).then(result => {
-      console.log("ree", result);
-      let data = result.data.sort((a, b) => {
-        var adate = new Date(a.created_at);
-        var bdate = new Date(b.created_at);
+  const [userError, setError] = useState("");
 
-        return adate.getTime() - bdate.getTime();
+  const setUser = (username, email) => {
+    axios
+      .get(`https://api.github.com/users/${username}/repos`)
+      .then(result => {
+        console.log("ree", result);
+        let resultData = result.data;
+        if (resultData.length > 0) {
+          let data = result.data.sort((a, b) => {
+            var adate = new Date(a.created_at);
+            var bdate = new Date(b.created_at);
+
+            return adate.getTime() - bdate.getTime();
+          });
+
+          setRepo(data);
+          login(true);
+        } else {
+          setError("Check username no result found");
+        }
+      })
+      .catch(err => {
+        setError("Check username no result found");
       });
-      setRepo(data);
-      login(true);
-    });
   };
   return (
     <div className="App">
       <h1 className="text-center">Github Timeline</h1>
       {!isLogged ? (
-        <LoginUser submitLogin={setUser} />
+        <LoginUser submitLogin={setUser} userError={userError} />
       ) : (
         <GitUser repo={repo} />
       )}
