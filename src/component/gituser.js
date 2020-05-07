@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import Bio from "./Bio/Bio";
+import TimeLine from "./timeLine/TimeLine";
+import { Box } from "@material-ui/core";
+
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+
+
 
 function GitUser(props) {
+  let userName = props.match.params.userName;
   const [resultLoaded, setLoader] = useState(false);
 
   useEffect(() => {
@@ -19,14 +27,18 @@ function GitUser(props) {
     );
   };
   return (
+
     <div>
-      <ul className="timeline">
+      <Bio userName={userName}></Bio>
+
+      <Box><TimeLine userName={userName}></TimeLine></Box>
+      {/* <ul className="timeline">
         {props.repo.map((item, index) => (
           <li key={item.id}>
             <div
               className={`${
                 index === 0 || index % 2 === 0 ? "direction-r" : "direction-l"
-              }`}
+                }`}
             >
               <div className="flag-wrapper">
                 <span className="flag">
@@ -42,7 +54,7 @@ function GitUser(props) {
             </div>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }

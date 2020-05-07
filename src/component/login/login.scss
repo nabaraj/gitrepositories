@@ -1,0 +1,63 @@
+.textField {
+    position: relative;
+    padding-right: 25px;
+    &:before {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "\00a0";
+        position: absolute;
+        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+        pointer-events: none;
+    }
+    label {
+        position: absolute;
+        color: rgba(0, 0, 0, 0.54);
+        top: 0;
+        left: 0;
+        font-size: 1rem;
+        transform: translate(0, 2px) scale(1);
+        transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    }
+    input {
+        font: inherit;
+        color: currentColor;
+        width: 100%;
+        border: 0;
+        height: 1.1876em;
+        margin: 0;
+        display: block;
+        padding: 6px 0 7px;
+        min-width: 0;
+        background: none;
+        box-sizing: content-box;
+        animation-name: mui-auto-fill-cancel;
+        -webkit-tap-highlight-color: transparent;
+        margin-top: 16px;
+        &:focus {
+            outline: none;
+        }
+    }
+    &.isFocused {
+        label {
+            transform: translate(0, -20px) scale(0.75);
+            transform-origin: top left;
+        }
+    }
+    button {
+        position: absolute;
+        top: 3px;
+        right: 0;
+    }
+}
+.overflowScroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 150px;
+}
+.loginFormContainer {
+}
+.loginForm {
+    min-width: 275px;
+}
