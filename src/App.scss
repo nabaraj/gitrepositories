@@ -10,7 +10,9 @@ body {
   // background-image: url("/daynight.png");
   padding-top: 20px;
 }
-
+.greenBG {
+  background-color: #66bb6a;
+}
 /* ================ The Timeline ================ */
 
 // .timeline {
@@ -451,3 +453,35 @@ body {
   top: -160px;
   left: 40px;
 }
+$sizes: 12;
+
+@mixin margin-classes {
+  @for $i from 1 through $sizes {
+    $margin: $i * 1px;
+    /* margin #{$margin} */
+    .m#{$i} {
+      margin: $margin;
+    }
+    .ml#{$i} {
+      margin-left: $margin;
+    }
+    .mr#{$i} {
+      margin-right: $margin;
+    }
+    .mt#{$i} {
+      margin-top: $margin;
+    }
+    .mb#{$i} {
+      margin-bottom: $margin;
+    }
+    .mx#{$i} {
+      margin-left: $margin;
+      margin-right: $margin;
+    }
+    .my#{$i} {
+      margin-top: $margin;
+      margin-bottom: $margin;
+    }
+  }
+}
+@include margin-classes;

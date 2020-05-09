@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Bio from "./Bio/Bio";
 import TimeLine from "./timeLine/TimeLine";
-import { Box } from "@material-ui/core";
-
+import { Box, Grid } from "@material-ui/core";
+import Paper from '@material-ui/core/Paper';
 import GridList from '@material-ui/core/GridList';
+import Container from '@material-ui/core/Container';
 import GridListTile from '@material-ui/core/GridListTile';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+// import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
 
 
 
@@ -31,7 +36,31 @@ function GitUser(props) {
     <div>
       <Bio userName={userName}></Bio>
 
-      <Box><TimeLine userName={userName}></TimeLine></Box>
+      <Container maxWidth="md" className="mt12">
+        <Grid container spacing={3}>
+
+          <Grid item xs>
+            <Card>
+              <CardActionArea>
+                <TimeLine
+                  type="Line"
+                  className="greenBG"
+                  userName={userName}
+                />
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs>
+            <Paper>
+              <TimeLine
+                type="Area"
+                className="greenBG"
+                userName={userName}
+              />
+            </Paper>
+          </Grid>
+        </Grid>
+      </Container>
       {/* <ul className="timeline">
         {props.repo.map((item, index) => (
           <li key={item.id}>
