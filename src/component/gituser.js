@@ -6,10 +6,9 @@ import Paper from '@material-ui/core/Paper';
 import GridList from '@material-ui/core/GridList';
 import Container from '@material-ui/core/Container';
 import GridListTile from '@material-ui/core/GridListTile';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+
 // import CardActions from '@material-ui/core/CardActions';
-import CardActionArea from '@material-ui/core/CardActionArea';
+
 
 
 
@@ -40,17 +39,15 @@ function GitUser(props) {
         <Grid container spacing={3}>
 
           <Grid item xs>
-            <Card>
-              <CardActionArea>
-                <TimeLine
-                  type="Line"
-                  className="greenBG"
-                  userName={userName}
-                />
-              </CardActionArea>
-            </Card>
+
+            <TimeLine
+              type="Line"
+              className="greenBG"
+              userName={userName}
+            />
+
           </Grid>
-          <Grid item xs>
+          {/* <Grid item xs>
             <Paper>
               <TimeLine
                 type="Area"
@@ -58,7 +55,7 @@ function GitUser(props) {
                 userName={userName}
               />
             </Paper>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
       {/* <ul className="timeline">

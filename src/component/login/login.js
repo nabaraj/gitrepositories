@@ -94,7 +94,7 @@ class LoginUser extends Component {
     let { userList } = this.state;
     let focusedClass = this.state.isFocused || this.state.username.trim().length > 0 ? "isFocused" : ""
     if (this.state.gitUser) {
-      return <Redirect to={`/${this.state.username}`} />
+      return <Redirect to={`/${this.state.gitUser}`} />
     }
     return (
 
@@ -130,7 +130,7 @@ class LoginUser extends Component {
                   </Fade>
                   {/* )} */}
                 </div>
-                {userList.length > 0 && <List component="nav" class="overflowScroll" aria-label="main mailbox folders">
+                {userList.length > 0 && <List component="nav" className="overflowScroll" aria-label="main mailbox folders">
                   {userList.map((item, index) => {
 
                     return (
