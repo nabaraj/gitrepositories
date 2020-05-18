@@ -68,11 +68,13 @@ export default function Bio({ userName }) {
         loading: false,
         user: null
     });
+    const [headerBg, setHeaderBg] = useState("")
     // const [loading, setLoader] = useState(true)
     const classes = useStyles();
     const loadImage = () => {
         let randomNumber = Math.floor(Math.random() * 999) + 1;
         let dummysrc = `https://i.picsum.photos/id/${randomNumber}/1200/400.jpg`;
+        // setHeaderBg(dummysrc);
         return dummysrc;
     }
     useEffect(() => {
@@ -89,11 +91,14 @@ export default function Bio({ userName }) {
         })
     }, [])
     const { loading, user } = bioData;
+    const styleData = {
+        "background-image": `url(${loadImage()})`
+    }
     return (
         // { loading?<CircularProgress /> : 
         (<Container maxWidth="md">
             <Card>
-                {loading && <CircularProgress />}
+                {loading && <div className="mediaContent"><CircularProgress /></div>}
                 {user &&
                     <>
                         <div className="mediaContent">
@@ -104,9 +109,9 @@ export default function Bio({ userName }) {
                                 image={loadImage()}
                                 onError={loadImage()}
                                 title="Header"
+                                className=""
                             />
                             <div className="blurBg">
-
                                 <div className="bioHeaderContainer">
                                     <Avatar alt="Remy Sharp" className="MuiAvatar-rounded" src={user.avatar_url} />
                                     <Typography variant="h5" color="textSecondary" component="h5">

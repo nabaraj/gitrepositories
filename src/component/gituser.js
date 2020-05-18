@@ -34,12 +34,9 @@ function GitUser(props) {
 
     <div>
       <Bio userName={userName}></Bio>
-
       <Container maxWidth="md" className="mt12">
         <Grid container spacing={3}>
-
           <Grid item xs>
-
             <TimeLine
               type="Line"
               className="greenBG"
@@ -48,14 +45,15 @@ function GitUser(props) {
 
           </Grid>
           {/* <Grid item xs>
-            <Paper>
-              <TimeLine
-                type="Area"
-                className="greenBG"
-                userName={userName}
-              />
-            </Paper>
+
+            <TimeLine
+              type="Line"
+              className="redBG"
+              userName={userName}
+            />
+
           </Grid> */}
+
         </Grid>
       </Container>
       {/* <ul className="timeline">

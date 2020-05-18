@@ -1,13 +1,19 @@
 .mediaContent {
     position: relative;
+    background-size: cover;
+    width: 100%;
+    display: block;
     .blurBg {
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
         top: 0;
-        background: rgba(0, 0, 0, 0.4); // Make sure this color has an opacity of less than 1
+        background: rgba(0, 0, 0, 0.3); // Make sure this color has an opacity of less than 1
         backdrop-filter: blur(15px); // This be the blur
+    }
+    .hidden {
+        visibility: hidden;
     }
 }
 .bioHeaderContainer {
