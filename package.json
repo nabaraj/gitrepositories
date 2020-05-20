@@ -2,7 +2,7 @@
   "name": "git-user-timeline",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://nabaraj.github.io/gituser/",
+  "homepage": "https://gituser-repo.netlify.app/",
   "dependencies": {
     "@carbon/charts-react": "^0.30.19",
     "@devexpress/dx-react-chart": "^2.6.2",

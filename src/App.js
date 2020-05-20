@@ -15,13 +15,14 @@ export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/" component={Home}>
+
+        </Route>
         <Route path="/about" component={About}>
         </Route>
         <Route path="/:userName" component={GitUser}>
         </Route>
-        <Route path="/" component={Home}>
 
-        </Route>
       </Switch>
 
     </Router>
