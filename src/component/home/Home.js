@@ -8,11 +8,14 @@ import axios from "axios";
 
 
 
-export default function Home() {
+export default function Home(props) {
     const [isLogged, login] = useState(true);
     const [repo, setRepo] = useState([]);
     const [userError, setError] = useState("");
     const [userName, setUserName] = useState('');
+    console.log('param ', props);
+    //const userName = props.params.match.userName
+
 
     return (
         <>
